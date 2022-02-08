@@ -1,0 +1,11 @@
+version: '3'
+services:
+  codepan:
+    image: codepan
+    ports:
+      - 5000:80
+    restarts: always
+    container_name: codepan
+    build:
+      context: .
+      dockerfile: ./Dockerfile
