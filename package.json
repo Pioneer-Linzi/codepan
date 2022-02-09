@@ -15,7 +15,9 @@
     "build": "poi build",
     "deploy": "surge -p dist -d codepan.net",
     "predeploy": "npm run build && cp dist/index.html dist/200.html",
-    "report": "poi build --bundle-report"
+    "report": "poi build --bundle-report",
+    "docker-build": "docker build --pull --rm -f 'Dockerfile' -t codepan:latest '.'",
+    "docker-run": "docker run -d --rm --name codepan  -p 10000:80 codepan:latest"
   },
   "xo": {
     "parser": "babel-eslint",
@@ -73,6 +75,7 @@
     "surge": "^0.19.0",
     "webpack-node-modules": "^0.1.1",
     "xo": "^0.18.2"
+
   },
   "license": "MIT",
   "dependencies": {
